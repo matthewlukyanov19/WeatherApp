@@ -5,8 +5,15 @@
 </ion-header>
 
 <ion-content>
-  
+  <ion-item>
+    <ion-label position="floating">City</ion-label>
+    <ion-input [(ngModel)]="city"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="getWeather()">Get Weather</ion-button>
 
-  
+  <div *ngIf="weather">
+    <h2>{{ weather.name }}</h2>
+    <p>Temperature: {{ weather.main.temp }}°C</p>
+    <p>Weather: {{ weather.weather[0].description }}</p>
+  </div>
 </ion-content>
-
