@@ -1,14 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Weather App</ion-title>
+    <ion-title>
+      Weather App
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-item>
-    <ion-label position="floating">City</ion-label>
+    <ion-label position="floating">Enter City</ion-label>
     <ion-input [(ngModel)]="city"></ion-input>
   </ion-item>
+
   <ion-button expand="full" (click)="getWeather()">Get Weather</ion-button>
 
   <div *ngIf="weather">

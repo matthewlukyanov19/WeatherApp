@@ -10,7 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms'; 
 
 import { firebaseConfig } from '../environments/firebase-config';
 
@@ -25,7 +25,7 @@ import { firebaseConfig } from '../environments/firebase-config';
     AngularFirestoreModule,
     AngularFireStorageModule,
     HttpClientModule,
-    FormsModule // Add FormsModule here
+    FormsModule 
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
