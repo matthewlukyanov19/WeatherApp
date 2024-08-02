@@ -15,4 +15,9 @@ export class WeatherService {
     const url = `${this.apiUrl}?q=${city}&appid=${this.apiKey}&units=metric`;
     return this.http.get<any>(url);
   }
+
+  getWeatherByCoordinates(latitude: number, longitude: number): Observable<any> {
+    const url = `${this.apiUrl}?lat=${latitude}&lon=${longitude}&appid=${this.apiKey}&units=metric`;
+    return this.http.get<any>(url);
+  }
 }
