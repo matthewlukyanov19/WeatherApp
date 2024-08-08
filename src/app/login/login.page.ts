@@ -14,17 +14,36 @@ export class LoginPage {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    this.authService.login(this.email, this.password).subscribe(success => {
-      if (success) {
-        this.router.navigate(['/home']);
-      } else {
-       
-        alert('Login failed');
+    if (!this.isValidEmail(this.email)) {
+      alert('Invalid email format.');
+      return;
+    }
+
+    if (this.password.length < 6) {
+      alert('Password must be at least 6 characters long.');
+      return;
+    }
+
+    this.authService.login(this.email, this.password).subscribe(
+      user => {
+        if (user) {
+          this.router.navigate(['/home']);
+        } else {
+          alert('Login failed');
+        }
+      },
+      error => {
+        alert('Login failed: ' + error.message);
       }
-    });
+    );
   }
 
   navigateToSignup() {
     this.router.navigate(['/signup']);
+  }
+
+  isValidEmail(email: string): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   }
 }
