@@ -11,12 +11,13 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 export class HomePage {
   city: string = '';
   weather: any;
+  weatherEmoji: string = '';
   errorMessage: string = '';
 
   constructor(
     private weatherService: WeatherService,
     private navCtrl: NavController,
-    private geolocation: Geolocation // Inject Geolocation
+    private geolocation: Geolocation
   ) {}
 
   navigateToDetails() {
@@ -28,6 +29,7 @@ export class HomePage {
     this.weatherService.getWeather(this.city).subscribe(
       data => {
         this.weather = data;
+        this.setWeatherEmoji();
       },
       error => {
         this.errorMessage = 'Could not fetch weather data. Please try again.';
@@ -42,6 +44,7 @@ export class HomePage {
       this.weatherService.getWeatherByCoordinates(latitude, longitude).subscribe(
         data => {
           this.weather = data;
+          this.setWeatherEmoji();
         },
         error => {
           this.errorMessage = 'Could not fetch weather data. Please try again.';
@@ -52,4 +55,20 @@ export class HomePage {
       this.errorMessage = 'Error getting location. Please try again.';
     });
   }
+
+  setWeatherEmoji() {
+    const temp = this.weather.main.temp;
+    const description = this.weather.weather[0].description.toLowerCase();
+
+    if (description.includes('rain')) {
+      this.weatherEmoji = '🌧️';  // Rain emoji
+    } else if (temp > 25) {
+      this.weatherEmoji = '☀️';  // Sun emoji
+    } else if (description.includes('cloud')) {
+      this.weatherEmoji = '☁️';  // Cloud emoji
+    } else {
+      this.weatherEmoji = '';  // No emoji for other conditions
+    }
+  }
 }
+
