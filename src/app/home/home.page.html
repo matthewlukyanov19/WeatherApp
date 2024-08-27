@@ -7,6 +7,12 @@
 </ion-header>
 
 <ion-content padding>
+
+  <!-- Image Section -->
+  <div class="image-container">
+    <img src="assets/icon/weather.png" alt="Weather Image" class="home-image"/>
+  </div>
+  
   <ion-item>
     <ion-label position="floating">Enter City</ion-label>
     <ion-input [(ngModel)]="city"></ion-input>
@@ -14,6 +20,8 @@
 
   <ion-button expand="full" (click)="getWeather()">Get Weather</ion-button>
   <ion-button expand="full" (click)="getCurrentLocationWeather()">Use Current Location</ion-button>
+
+    
 
   <div *ngIf="errorMessage" style="color: red;">
     {{ errorMessage }}
