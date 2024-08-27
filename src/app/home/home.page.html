@@ -12,12 +12,14 @@
   <div class="image-container">
     <img src="assets/icon/weather.png" alt="Weather Image" class="home-image"/>
   </div>
-  
+
+  <!-- Button to enter city by typing the city you wish to add-->
   <ion-item>
     <ion-label position="floating">Enter City</ion-label>
     <ion-input [(ngModel)]="city"></ion-input>
   </ion-item>
 
+  <!-- Uses Geolocation to fetch weather from your current location-->
   <ion-button expand="full" (click)="getWeather()">Get Weather</ion-button>
   <ion-button expand="full" (click)="getCurrentLocationWeather()">Use Current Location</ion-button>
 

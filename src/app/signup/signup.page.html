@@ -5,16 +5,20 @@
 </ion-header>
 
 <ion-content padding>
+  <!-- Asks user for email to signup-->
   <ion-item>
     <ion-label position="floating">Email</ion-label>
     <ion-input [(ngModel)]="email" type="email"></ion-input>
   </ion-item>
 
+  <!-- Asks user to create a password with certain requirements-->
   <ion-item>
     <ion-label position="floating">Password</ion-label>
     <ion-input [(ngModel)]="password" type="password"></ion-input>
   </ion-item>
 
+  <!-- Sign up button when requirements met, stores the account details in google firebase-->
+   <!-- then brings you to login page to confirm login-->
   <ion-button expand="full" (click)="signup()">Sign Up</ion-button>
 
   <ion-button expand="full" (click)="navigateToLogin()">Already have an account?</ion-button>

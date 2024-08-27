@@ -4,17 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Asks user for email-->
 <ion-content padding>
   <ion-item>
     <ion-label position="floating">Email</ion-label>
     <ion-input [(ngModel)]="email" type="email"></ion-input>
   </ion-item>
 
+  <!-- Asks user for password-->
   <ion-item>
     <ion-label position="floating">Password</ion-label>
     <ion-input [(ngModel)]="password" type="password"></ion-input>
   </ion-item>
 
+  <!--once clicked login, brings you to homepage-->
   <ion-button expand="full" (click)="login()">Login</ion-button>
 
   <ion-button expand="full" (click)="navigateToSignup()">Create an Account</ion-button>
